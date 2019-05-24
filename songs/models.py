@@ -13,7 +13,6 @@ class NewVideo(models.Model):
 	video_title 			= models.TextField(db_index=True, null=True, blank=True)
 	video_id 				= models.CharField(max_length=11, null=False, blank=True, primary_key=True)
 	moods 					= models.CharField(choices=MOOD_CHOICES, max_length=20,  default='HAPPY')
-	new_video_tags			= models.ManyToManyField(NewVideoTag, related_name='new_videos')
 	labeled					= models.NullBooleanField()
 
 	def __str__(self):
