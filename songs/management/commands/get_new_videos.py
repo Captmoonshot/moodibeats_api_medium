@@ -43,12 +43,17 @@ def search_api():
 
 
     for search_result in request['items']:
-        video_title = search_result['snippet']['title']
-        video_title = html_reverse_escape(video_title)
-        video_id = search_result['id']['videoId']
+        video_title         = search_result['snippet']['title']
+        video_title         = html_reverse_escape(video_title)
+        video_id            = search_result['id']['videoId']
+        video_description   = search_result['snippet']['description']
       
         try:
-            new_videos = NewVideo(video_id=video_id, video_title=video_title)
+            new_videos = NewVideo(
+                video_id=video_id,
+                video_title=video_title,
+                video_description=video_description
+            )
 
             new_videos.save()
         except:
