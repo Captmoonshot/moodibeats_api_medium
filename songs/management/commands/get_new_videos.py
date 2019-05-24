@@ -47,6 +47,7 @@ def search_api():
         video_title         = html_reverse_escape(video_title)
         video_id            = search_result['id']['videoId']
         video_description   = search_result['snippet']['description']
+        video_description   = html_reverse_escape(video_description)
       
         try:
             new_videos = NewVideo(
